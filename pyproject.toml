@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyxpo-filter-camera"
+dynamic = ["version"]
+description = "A filter camera for pyxpo apps: live GPU color filters, beauty, face lenses and effects, burned into long, crash-safe video recordings."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Vishal Chaubey" }]
+keywords = ["pyxpo", "pyxpo-module", "mobile", "android", "camera", "filters", "beauty", "face-filters", "ar", "video", "recording", "opengl"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: Android",
+    "Operating System :: iOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: User Interfaces",
+    "Typing :: Typed",
+]
+requires-python = ">=3.9"
+dependencies = ["pyxpo>=0.1.0a2,<0.2"]
+
+[project.urls]
+Homepage = "https://github.com/pyxpo/pyxpo-filter-camera"
+Documentation = "https://github.com/pyxpo/pyxpo-filter-camera/blob/main/README.md"
+Changelog = "https://github.com/pyxpo/pyxpo-filter-camera/blob/main/CHANGELOG.md"
+Source = "https://github.com/pyxpo/pyxpo-filter-camera"
+Issues = "https://github.com/pyxpo/pyxpo-filter-camera/issues"
+
+# How `pyxpo build` finds this module: the entry point name is the module name apps list in
+# `[tool.pyxpo] modules`, its value the import package holding pyxpo-module.json.
+[project.entry-points."pyxpo.modules"]
+filter-camera = "pyxpo_filter_camera"
+
+[tool.setuptools]
+packages = ["pyxpo_filter_camera"]
+
+[tool.setuptools.dynamic]
+version = { attr = "pyxpo_filter_camera.__version__" }
+
+[tool.setuptools.package-data]
+pyxpo_filter_camera = ["pyxpo-module.json", "py.typed", "ios/**/*", "android/**/*"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["__pycache__", "*.pyc", ".DS_Store"]

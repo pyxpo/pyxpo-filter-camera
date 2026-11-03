@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "nativeContract": 2,
+  "name": "filter-camera",
+  "native": "FilterCamera",
+  "android": {
+    "namespace": "dev.pyxpo.modules.filtercamera",
+    "classes": ["dev.pyxpo.modules.filtercamera.FilterCameraModule"],
+    "minSdk": 24,
+    "dependencies": [
+      "com.google.mlkit:face-detection:16.1.7"
+    ]
+  }
+}
